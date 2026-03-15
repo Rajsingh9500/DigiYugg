@@ -8,8 +8,8 @@ import ReactMarkdown from "react-markdown";
 import { streamChat, type ChatMessage } from "@/lib/chat-stream";
 import { gsap } from "gsap";
 
-const STORAGE_KEY = "coder-digital-chat-industrial";
-const DEFAULT_MSG: ChatMessage = { role: "assistant", content: "System Online. I am the **Coder Digital AI Architect**. I can assist with:\n\n- 🌐 **Web Infrastructure** Strategy\n- 💰 **Economic Models** (Pricing)\n- 🏗️ **Architectural** Feasibility\n- 📡 **Connectivity** with our team\n\nSpecify your objective." };
+const STORAGE_KEY = "digiyugg-chat-industrial";
+const DEFAULT_MSG: ChatMessage = { role: "assistant", content: "System Online. I am the **DigiYugg AI Architect**. I can assist with:\n\n- 🌐 **Web Infrastructure** Strategy\n- 💰 **Economic Models** (Pricing)\n- 🏗️ **Architectural** Feasibility\n- 📡 **Connectivity** with our team\n\nSpecify your objective." };
 
 const Chat = () => {
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
@@ -212,7 +212,7 @@ const Chat = () => {
             </button>
           </form>
           <p className="mt-4 text-[8px] font-bold uppercase tracking-[0.2em] text-white/20 text-center">
-            Encrypted End-to-End // Coder Digital Solutions 2024
+            Encrypted End-to-End // DigiYugg 2024
           </p>
         </div>
       </div>

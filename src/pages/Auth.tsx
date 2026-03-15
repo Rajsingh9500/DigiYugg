@@ -12,7 +12,7 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => { document.title = "Access Control | Coder Digital Solutions"; }, []);
+  useEffect(() => { document.title = "Access Control | DigiYugg"; }, []);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -62,7 +62,7 @@ const Auth = () => {
         <form onSubmit={handleSubmit} className="space-y-10">
           <div className="space-y-4">
              <label className="text-[10px] font-black text-primary uppercase tracking-[0.3em] block ml-1">Identity Endpoint</label>
-             <input type="email" placeholder="ADMIN@CODERDIGITAL.IN" value={email} onChange={e => setEmail(e.target.value)} required className="w-full bg-white/5 border-b border-white/20 px-4 py-4 focus:outline-none focus:border-primary transition-colors text-white font-bold text-xs uppercase tracking-widest" />
+             <input type="email" placeholder="ADMIN@DIGIYUGG.IN" value={email} onChange={e => setEmail(e.target.value)} required className="w-full bg-white/5 border-b border-white/20 px-4 py-4 focus:outline-none focus:border-primary transition-colors text-white font-bold text-xs uppercase tracking-widest" />
           </div>
           <div className="space-y-4">
              <label className="text-[10px] font-black text-primary uppercase tracking-[0.3em] block ml-1">Security Keyphrase</label>

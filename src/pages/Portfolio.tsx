@@ -23,7 +23,7 @@ const Portfolio = () => {
   const { toast } = useToast();
 
   useEffect(() => { 
-    document.title = "Projects | Coder Digital Solutions"; 
+    document.title = "Projects | DigiYugg"; 
 
     const ctx = gsap.context(() => {
       const items = document.querySelectorAll(".portfolio-item");

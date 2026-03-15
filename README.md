@@ -1,4 +1,4 @@
-# Coder Digital Solutions – Web Builder
+# DigiYugg – Web Builder
 
 Professional website builder for local businesses like restaurants, clinics, gyms, and salons.
 

@@ -52,7 +52,7 @@ const Blog = () => {
   const { toast } = useToast();
 
   useEffect(() => { 
-    document.title = "Blog | Coder Digital Solutions"; 
+    document.title = "Blog | DigiYugg"; 
 
     const ctx = gsap.context(() => {
       const reveals = document.querySelectorAll(".gsap-reveal");

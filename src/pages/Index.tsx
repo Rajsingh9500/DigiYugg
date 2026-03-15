@@ -33,7 +33,7 @@ const stats = [
 ];
 
 const testimonials = [
-  { name: "Rajesh Kumar", business: "Kumar's Kitchen", text: "Coder Digital built a perfect ordering system for my restaurant. My local orders increased by 40%!", rating: 5 },
+  { name: "Rajesh Kumar", business: "Kumar's Kitchen", text: "DigiYugg built a perfect ordering system for my restaurant. My local orders increased by 40%!", rating: 5 },
   { name: "Dr. Anjali Mehta", business: "Mehta Dental Clinic", text: "The appointment booking system they built is flawless. It has saved us hours of manual calls.", rating: 5 },
   { name: "Suresh Singh", business: "City Fitness Gym", text: "Having a professional website changed how people in the neighborhood see my gym. Highly professional team!", rating: 5 },
 ];
@@ -45,7 +45,7 @@ const whyChooseUs = [
 ];
 
 const faqs = [
-  { q: "How much does a website cost?", a: "Our plans start at just ₹3,000 for a single-page website. Multi-page sites range from ₹8,000 to ₹15,000 depending on features." },
+  { q: "How much does a website cost?", a: "Our architectures start at ₹3,000 for a Basic single-point system. Standard multi-page systems are ₹8,000, and Premium industrial ecosystems begin at ₹15,000." },
   { q: "How long does it take to build a website?", a: "A basic one-page website takes 3–5 days. Multi-page websites take 7–10 business days." },
   { q: "Do I need to know anything technical?", a: "Not at all! We handle everything — from design to development to hosting." },
   { q: "Will my website work on mobile phones?", a: "Yes! Every website we build is fully responsive and looks great on all devices." },
@@ -67,7 +67,7 @@ const Index = () => {
   };
 
   useEffect(() => {
-    document.title = "Coder Digital Solutions – Modern Digital Systems for Local Enterprises";
+    document.title = "DigiYugg – Modern Digital Systems for Local Enterprises";
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
@@ -77,17 +77,7 @@ const Index = () => {
         .from(".hero-actions", { y: 20, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.6")
         .from(".hero-visual", { scale: 0.95, opacity: 0, duration: 1.2, ease: "expo.out" }, "-=0.8");
 
-      // Smooth Background Parallax
-      gsap.to(".hero-bg-accent", {
-        y: (i, target) => -ScrollTrigger.maxScroll(window) * 0.15,
-        ease: "none",
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        }
-      });
+
 
       // Stats Counters
       const counters = document.querySelectorAll(".stat-counter");
@@ -155,8 +145,8 @@ const Index = () => {
                 <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95] tracking-tighter mb-10">
                   Establish A Strong <span className="text-primary">Presence,</span> In A Digital World
                 </h1>
-                <p className="text-white/40 text-lg max-w-lg font-medium leading-relaxed mb-12">
-                  Coder Digital Solutions helps local businesses like restaurants, clinics, and shops build professional, affordable websites that reach more customers.
+                <p className="text-white/70 text-lg max-w-lg font-medium leading-relaxed mb-12">
+                  DigiYugg helps local businesses like restaurants, clinics, and shops build professional, affordable websites that reach more customers.
                 </p>
 
                 <div className="flex flex-wrap gap-x-12 gap-y-6">
@@ -244,7 +234,7 @@ const Index = () => {
                 <div key={i} className="group relative bg-black p-10 flex items-start justify-between transition-colors hover:bg-primary/5">
                   <div className="max-w-md">
                     <h3 className="text-primary font-bold text-2xl mb-4 transition-colors group-hover:text-white">{v.title}</h3>
-                    <p className="text-white/40 text-sm font-medium leading-relaxed group-hover:text-white/60 transition-colors">{v.desc}</p>
+                    <p className="text-white/70 text-sm font-medium leading-relaxed group-hover:text-white/90 transition-colors">{v.desc}</p>
                   </div>
                   <div className="text-7xl font-black text-primary/10 tracking-tighter transition-all duration-500 group-hover:text-primary group-hover:scale-110">
                     0{i + 1}
@@ -287,7 +277,7 @@ const Index = () => {
                   </div>
 
                   <h3 className="text-3xl font-black text-white mb-6 uppercase tracking-tight group-hover:text-primary transition-colors">{sol.title}</h3>
-                  <p className="text-white/40 text-sm font-medium leading-relaxed mb-10">{sol.desc}</p>
+                  <p className="text-white/70 text-sm font-medium leading-relaxed mb-10">{sol.desc}</p>
 
                   <Button variant="ghost" asChild className="p-0 h-auto text-[10px] font-black uppercase tracking-[0.3em] text-white hover:text-primary hover:bg-transparent transition-colors">
                     <Link to="/contact" className="flex items-center gap-4">Initialize Build <ArrowRight className="w-4 h-4" /></Link>
@@ -300,7 +290,7 @@ const Index = () => {
       </section>
 
       {/* Founders Section */}
-      <section id="founders" className="section-padding relative overflow-hidden">
+      {/*       <section id="founders" className="section-padding relative overflow-hidden">
         <div className="max-width-container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 gsap-reveal">
@@ -330,15 +320,15 @@ const Index = () => {
                     "We empower small businesses to grow digitally and compete in the modern marketplace."
                   </p>
                   <div className="w-20 h-px bg-primary mb-10" />
-                  <p className="text-white/40 text-lg font-medium leading-relaxed">
-                    Founded by Raj Singh and Vaibhav Gupta, Coder Digital provides reliable digital solutions to help local enterprises nourish and expand.
+                  <p className="text-white/70 text-lg font-medium leading-relaxed">
+                    Founded by Raj Singh and Vaibhav Gupta, DigiYugg provides reliable digital solutions to help local enterprises nourish and expand.
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials */}
       <section id="testimonials" className="section-padding bg-white/[0.01]">
@@ -402,7 +392,7 @@ const Index = () => {
       {/* Final Conversion CTA: Scattered Gallery Style */}
       <section className="py-40 relative overflow-hidden bg-black border-t border-white/5">
         <div className="absolute inset-x-0 top-20 text-center pointer-events-none select-none opacity-5">
-          <span className="text-[30vw] font-black text-primary leading-none tracking-tighter">coder</span>
+          <span className="text-[30vw] font-black text-primary leading-none tracking-tighter">DigiYugg</span>
         </div>
 
         <div className="max-width-container relative z-10">
@@ -411,8 +401,8 @@ const Index = () => {
             <h2 className="text-5xl md:text-8xl lg:text-9xl font-black text-white tracking-tighter leading-[0.8] mb-12">
               Bring Your <br /> <span className="text-primary italic">Vision to Life.</span>
             </h2>
-            <p className="max-w-2xl text-white/40 text-xl font-medium leading-relaxed mb-16">
-              Partner with Coder Digital to transform your local business into a digital landmark.
+            <p className="max-w-2xl text-white/70 text-xl font-medium leading-relaxed mb-16">
+              Partner with DigiYugg to transform your local business into a digital landmark.
               Our enterprise-grade systems are built for the next decade of internet commerce.
             </p>
             <Button asChild className="bg-primary text-black hover:bg-primary/90 h-20 px-16 rounded-none font-black text-xs uppercase tracking-[0.4em] transition-all transform hover:scale-105 shadow-[0_20px_60px_rgba(255,127,0,0.2)]">

@@ -1,3 +1,4 @@
+/// <reference lib="deno.ns" />
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 interface ChatMessage {
@@ -10,11 +11,11 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const SYSTEM_PROMPT = `You are a friendly AI assistant for Coder Digital Solutions, a web development agency based in Indore, India.
+const SYSTEM_PROMPT = `You are a friendly AI assistant for DigiYugg, a web development agency based in Indore, India.
 
 About the company:
 - We build custom websites for local businesses (restaurants, clinics, gyms, salons, etc.)
-- Contact: +91 62622 53146, contact@coderdigital.in
+- Contact: +91 62622 53146, contact@digiyugg.in
 - Pricing: Basic (₹3k), Standard (₹8k), Premium (₹15k)
 
 Your goals:
@@ -26,7 +27,7 @@ Your goals:
 3. Once you have this info, tell them our team will contact them within 24 hours.
 4. IMPORTANT: Keep your response concise. Use markdown.`;
 
-Deno.serve(async (req) => {
+Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {

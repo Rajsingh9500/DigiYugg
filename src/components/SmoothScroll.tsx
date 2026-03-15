@@ -19,6 +19,13 @@ const SmoothScroll = () => {
     });
 
     lenis.on('scroll', ScrollTrigger.update);
+    
+    // Refresh ScrollTrigger on window resize to keep animations in sync
+    const resizeObserver = new ResizeObserver(() => {
+      lenis.resize();
+      ScrollTrigger.refresh();
+    });
+    resizeObserver.observe(document.body);
 
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000);
@@ -29,6 +36,7 @@ const SmoothScroll = () => {
     return () => {
       lenis.destroy();
       gsap.ticker.remove(lenis.raf);
+      resizeObserver.disconnect();
     };
   }, []);
 

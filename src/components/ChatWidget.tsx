@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { streamChat, type ChatMessage } from "@/lib/chat-stream";
 
-const STORAGE_KEY = "coder-digital-chat-widget";
-const DEFAULT_MSG: ChatMessage = { role: "assistant", content: "Hi! 👋 I'm the Coder Digital assistant. How can I help you today? I can answer questions about our web development services, pricing, or help you get started!" };
+const STORAGE_KEY = "digiyugg-chat-widget";
+const DEFAULT_MSG: ChatMessage = { role: "assistant", content: "Hi! 👋 I'm the DigiYugg assistant. How can I help you today? I can answer questions about our web development services, pricing, or help you get started!" };
 
 const ChatWidget = () => {
   const [open, setOpen] = useState(false);
@@ -192,7 +192,7 @@ const ChatWidget = () => {
               </button>
             </form>
             <div className="mt-3 flex justify-between items-center px-1">
-               <span className="text-[10px] text-white/30">Powered by Coder Digital AI</span>
+               <span className="text-[10px] text-white/30">Powered by DigiYugg AI</span>
                {messages.length > 1 && (
                  <button onClick={clearChat} className="text-[10px] text-white/30 hover:text-red-500 transition-colors flex items-center gap-1">
                    <Trash2 className="h-3 w-3" /> Clear Chat

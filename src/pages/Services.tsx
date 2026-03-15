@@ -39,7 +39,7 @@ const Services = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { 
-    document.title = "Our Services – Coder Digital Solutions"; 
+    document.title = "Our Services – DigiYugg"; 
 
     const ctx = gsap.context(() => {
       // Grid reveal

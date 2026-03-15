@@ -45,17 +45,15 @@ const Admin = () => {
   }, [toast]);
 
   useEffect(() => {
-    document.title = "Intelligence Hub | Coder Digital Solutions";
+    document.title = "Intelligence Hub | DigiYugg";
 
     const checkAdminRole = async (userId: string) => {
-      const { data, error } = await supabase
-        .from('user_roles')
-        .select('role')
-        .eq('user_id', userId)
-        .eq('role', 'admin')
-        .single();
+      const { data: isAdmin, error } = await supabase.rpc('has_role', {
+        _user_id: userId,
+        _role: 'admin'
+      });
       
-      if (error || !data) {
+      if (error || !isAdmin) {
         toast({ title: "Access Denied", description: "You do not have administrative privileges.", variant: "destructive" });
         navigate("/");
       } else {
@@ -84,7 +82,7 @@ const Admin = () => {
   };
 
   const handleShare = async (lead: Lead) => {
-    const text = `Lead Details:\nName: ${lead.name}\nBusiness: ${lead.business || "N/A"}\nPhone: ${lead.phone}\nMessage: ${lead.message || "N/A"}\n\nSent from Coder Digital Hub.`;
+    const text = `Lead Details:\nName: ${lead.name}\nBusiness: ${lead.business || "N/A"}\nPhone: ${lead.phone}\nMessage: ${lead.message || "N/A"}\n\nSent from DigiYugg Hub.`;
 
     if (navigator.share) {
       try {
@@ -108,10 +106,10 @@ const Admin = () => {
     const cleanPhone = lead.phone.replace(/\D/g, "");
     const phoneWithCountry = cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
     
-    let text = `Greetings from Coder Digital Solutions! 🚀 We've received your inquiry. We will contact you soon to discuss how we can build your digital presence.`;
+    let text = `Greetings from DigiYugg! 🚀 We've received your inquiry. We will contact you soon to discuss how we can build your digital presence.`;
     
     if (thankYou) {
-      text = `Thank you for contacting Coder Digital Solutions, ${lead.name}! We have received your request and our team will contact you shortly.`;
+      text = `Thank you for contacting DigiYugg, ${lead.name}! We have received your request and our team will contact you shortly.`;
     }
 
     const message = encodeURIComponent(text);
@@ -367,7 +365,7 @@ const Admin = () => {
                   <input 
                     name="email"
                     type="email" 
-                    placeholder="NEW_ADMIN@CODERDIGITAL.IN" 
+                    placeholder="NEW_ADMIN@DIGIYUGG.IN" 
                     required
                     className="flex-1 bg-white/[0.03] border border-white/10 px-6 py-4 text-xs font-black uppercase tracking-widest text-white focus:outline-none focus:border-primary transition-all"
                   />

@@ -5,7 +5,7 @@ const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    document.title = "Page Not Found – Coder Digital Solutions";
+    document.title = "Page Not Found – DigiYugg";
     console.warn("404: User attempted to access non-existent route:", location.pathname);
   }, [location.pathname]);
 

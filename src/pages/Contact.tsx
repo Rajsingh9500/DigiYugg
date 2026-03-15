@@ -21,7 +21,7 @@ const Contact = () => {
   const [form, setForm] = useState({ name: "", business: "", phone: "", type: "", message: "" });
 
   useEffect(() => {
-    document.title = "Contact | Coder Digital Solutions";
+    document.title = "Contact | DigiYugg";
 
     const ctx = gsap.context(() => {
       const reveals = document.querySelectorAll(".gsap-reveal");
@@ -113,7 +113,7 @@ const Contact = () => {
                       <Button
                         className="bg-primary text-black hover:bg-white transition-all rounded-none h-16 px-12 font-black text-xs uppercase tracking-[0.3em] flex items-center gap-3"
                         onClick={() => {
-                          const message = encodeURIComponent(`Hi Coder Digital Solutions, I've just submitted an inquiry. Thank you for your time, looking forward to connecting!`);
+                          const message = encodeURIComponent(`Hi DigiYugg, I've just submitted an inquiry. Thank you for your time, looking forward to connecting!`);
                           window.open(`https://wa.me/916262253146?text=${message}`, "_blank");
                         }}
                       >
@@ -210,7 +210,7 @@ const Contact = () => {
                   <div className="group">
                     <p className="text-[10px] text-white/40 font-black uppercase tracking-widest mb-2">Direct Channel</p>
                     <div className="flex flex-col gap-2">
-                      <a href="mailto:contact@coderdigital.in" className="text-2xl font-bold text-white/90 hover:text-primary transition-colors tracking-tight italic">contact@coderdigital.in</a>
+                      <a href="mailto:contact@digiyugg.in" className="text-2xl font-bold text-white/90 hover:text-primary transition-colors tracking-tight italic">contact@digiyugg.in</a>
                       <a href="tel:+916262253146" className="text-2xl font-bold text-white/90 hover:text-primary transition-colors tracking-tight">+91 62622 53146</a>
                     </div>
                   </div>
@@ -235,7 +235,7 @@ const Contact = () => {
               <div className="flex gap-4">
                 <div className="w-px h-12 bg-white/10" />
                 <p className="text-[10px] text-white/30 font-medium leading-relaxed max-w-[200px]">
-                  All transmissions are secure and subject to our enterprise privacy protocols. CODER DIGITAL SOLUTIONS © 2024
+                  All transmissions are secure and subject to our enterprise privacy protocols. DIGIYUGG © 2024
                 </p>
               </div>
             </div>

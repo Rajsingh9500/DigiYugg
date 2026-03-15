@@ -39,14 +39,18 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${scrolled
-        ? "bg-black/90 backdrop-blur-md border-white/5 py-4"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b [backface-visibility:hidden] [transform:translateZ(0)] ${scrolled
+        ? "bg-black/80 backdrop-blur-md border-white/5 py-4"
         : "bg-transparent border-transparent py-6"
         }`}
     >
       <nav className="max-width-container flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="text-4xl font-black text-primary tracking-tighter transition-transform duration-300 group-hover:scale-105">coder</span>
+        <Link to="/" className="flex items-center group">
+          <img
+            src="/logo.png"
+            alt="DigiYugg Logo"
+            className="h-11 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+          />
         </Link>
 
         {/* Desktop Menu */}
