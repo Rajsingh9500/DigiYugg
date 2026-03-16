@@ -79,7 +79,7 @@ const Index = () => {
 
       // Hero Parallax for Cinematic Feel
       gsap.to(".hero-video", {
-        yPercent: 20,
+        yPercent: 12,
         ease: "none",
         scrollTrigger: {
           trigger: "#about",
@@ -134,7 +134,7 @@ const Index = () => {
   return (
     <div ref={heroRef} className="bg-background text-foreground noise-bg overflow-x-hidden">
       {/* Hero / About Split Section */}
-      <section id="about" className="relative min-h-screen flex items-center pt-20 pb-20 border-b border-white/5 overflow-hidden">
+      <section id="about" className="relative min-h-screen flex items-center pt-20 pb-10 border-b border-white/5 overflow-hidden">
         {/* Background Visual Layer */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <video
@@ -142,8 +142,7 @@ const Index = () => {
             loop
             muted
             playsInline
-
-            className="hero-video w-full h-full object-contain brightness-[0.50] opacity-100 "
+            className="hero-video w-full h-full object-cover object-center brightness-[0.45] opacity-80 will-change-transform"
           >
             <source src="/hero.mp4" type="video/mp4" />
           </video>
@@ -185,13 +184,13 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="relative aspect-video rounded-none overflow-hidden border border-white/10 mt-12">
+              {/*   <div className="relative aspect-video rounded-none overflow-hidden border border-white/10 mt-12">
                 <img
                   src="/images/hero_agency.png"
                   alt="Digital Agency Team"
                   className="w-full h-full object-cover brightness-20 hover:scale-110 hover:brightness-100 transition-all duration-1000"
                 />
-              </div>
+              </div> */}
             </div>
             {/* Vertical Divider (Desktop Only) */}
             <div className="vertical-divider mt-20">
@@ -201,7 +200,7 @@ const Index = () => {
             {/* Right Column: Key Stats / Who We Are */}
             <div id="who-we-are" className="flex flex-col justify-center space-y-20 py-12 md:pl-24 gsap-reveal">
               <div>
-                <span className="text-primary font-bold uppercase tracking-[0.4em] text-[10px] mb-12 block">Who We Are</span>
+                <span className="text-primary font-bold uppercase tracking-[0.4em] text-[10px]  mb-12 block">Who We Are</span>
 
                 <div className="space-y-20">
                   {[
@@ -209,8 +208,8 @@ const Index = () => {
                     { num: "50", suffix: "+", label: "Digital Projects\nCompleted", value: 50 },
                     { num: "24", suffix: "/7", label: "Reliable\nSupport", value: 24 }
                   ].map((s, i) => (
-                    <div key={i} className="flex items-start gap-14 group">
-                      <div className="text-8xl md:text-[10rem] font-black text-primary leading-none tracking-tighter transition-transform duration-500 group-hover:scale-105 flex">
+                    <div key={i} className="flex items-start gap-14 group ">
+                      <div className="text-5xl md:text-[10rem] font-black text-primary leading-none tracking-tighter transition-transform duration-500 group-hover:scale-105 flex">
                         <span className="stat-counter" data-value={s.value}>0</span>
                         {s.suffix && <span className="text-primary">{s.suffix}</span>}
                       </div>

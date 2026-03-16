@@ -156,3 +156,18 @@ html {
   transform: translateZ(0);
   backface-visibility: hidden;
 }
+
+.ease-expo {
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.mobile-menu-opaque {
+  background-color: #000000 !important;
+  opacity: 1 !important;
+  z-index: 9999 !important;
+}
+
+.stat-counter {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+}
