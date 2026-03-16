@@ -77,6 +77,18 @@ const Index = () => {
         .from(".hero-actions", { y: 20, opacity: 0, duration: 0.8, ease: "power3.out" }, "-=0.6")
         .from(".hero-visual", { scale: 0.95, opacity: 0, duration: 1.2, ease: "expo.out" }, "-=0.8");
 
+      // Hero Parallax for Cinematic Feel
+      gsap.to(".hero-video", {
+        yPercent: 20,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#about",
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
 
 
       // Stats Counters
@@ -86,8 +98,8 @@ const Index = () => {
         const obj = { val: 0 };
         gsap.to(obj, {
           val: targetValue,
-          duration: 2.5,
-          ease: "power3.out",
+          duration: 3,
+          ease: "expo.out",
           scrollTrigger: {
             trigger: counter,
             start: "top 95%",
@@ -122,22 +134,22 @@ const Index = () => {
   return (
     <div ref={heroRef} className="bg-background text-foreground noise-bg overflow-x-hidden">
       {/* Hero / About Split Section */}
-      <section id="about" className="relative min-h-screen flex items-center pt-32 pb-20 border-b border-white/5 overflow-hidden">
-        {/* Background Video Layer */}
+      <section id="about" className="relative min-h-screen flex items-center pt-20 pb-20 border-b border-white/5 overflow-hidden">
+        {/* Background Visual Layer */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster="/images/hero_agency.png"
-            className="w-full h-full object-cover grayscale brightness-50 opacity-60 transition-opacity duration-1000"
+
+            className="hero-video w-full h-full object-contain brightness-[0.50] opacity-100 "
           >
-            <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27dbcc6a765354d5410898a9cd411802ebde164&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
+            <source src="/hero.mp4" type="video/mp4" />
           </video>
           {/* Brand Tint Overlay */}
           <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
         </div>
 
         <div className="max-width-container w-full relative z-10">
