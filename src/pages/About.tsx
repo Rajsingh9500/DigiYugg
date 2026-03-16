@@ -117,7 +117,7 @@ const About = () => {
 
             <div className="relative aspect-video gsap-reveal group overflow-hidden border border-white/10">
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
+                src="/images/hero_agency.png"
                 alt="Philosophy"
                 className="w-full h-full object-cover grayscale brightness-75 group-hover:scale-105 transition-transform duration-1000"
               />

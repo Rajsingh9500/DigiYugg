@@ -125,7 +125,7 @@ const Index = () => {
             loop
             muted
             playsInline
-            poster="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+            poster="/images/hero_agency.png"
             className="w-full h-full object-cover grayscale brightness-50 opacity-60 transition-opacity duration-1000"
           >
             <source src="https://player.vimeo.com/external/434045526.sd.mp4?s=c27dbcc6a765354d5410898a9cd411802ebde164&profile_id=164&oauth2_token_id=57447761" type="video/mp4" />
@@ -170,13 +170,12 @@ const Index = () => {
 
               <div className="relative aspect-video rounded-none overflow-hidden border border-white/10 mt-12">
                 <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
+                  src="/images/hero_agency.png"
                   alt="Digital Agency Team"
-                  className="w-full h-full object-cover grayscale brightness-50 hover:grayscale-0 hover:brightness-100 transition-all duration-1000"
+                  className="w-full h-full object-cover brightness-20 hover:scale-110 hover:brightness-100 transition-all duration-1000"
                 />
               </div>
             </div>
-
             {/* Vertical Divider (Desktop Only) */}
             <div className="vertical-divider mt-20">
               <div className="divider-dot" style={{ top: '35%' }} />
@@ -258,16 +257,16 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
             {[
-              { title: "Restaurant", img: "https://images.unsplash.com/photo-1552566626-52f8b828add9", desc: "Digital dining systems & mobile menus." },
-              { title: "Clinic", img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d", desc: "Seamless appointment & patient booking." },
-              { title: "Gym & Fitness", img: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48", desc: "Membership logic & class coordination." },
-              { title: "Salon & Spa", img: "https://images.unsplash.com/photo-1560066984-138dadb4c035", desc: "High-end booking & schedule management." },
-              { title: "Local Enterprise", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab", desc: "Corporate grade local digital presence." },
-              { title: "Retail Hub", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8", desc: "E-commerce & inventory transformation." }
+              { title: "Restaurant", img: "/images/solution_restaurant.png", desc: "Digital dining systems & mobile menus." },
+              { title: "Clinic", img: "/images/solution_clinic.png", desc: "Seamless appointment & patient booking." },
+              { title: "Gym & Fitness", img: "/images/solution_gym.png", desc: "Membership logic & class coordination." },
+              { title: "Salon & Spa", img: "/images/solution_salon.png", desc: "High-end booking & schedule management." },
+              { title: "Local Enterprise", img: "/images/solution_enterprise.png", desc: "Corporate grade local digital presence." },
+              { title: "Retail Hub", img: "/images/solution_retail.png", desc: "E-commerce & inventory transformation." }
             ].map((sol, i) => (
               <div key={i} className="bg-black p-12 group gsap-reveal relative overflow-hidden transition-colors hover:bg-primary/5">
-                <div className="absolute inset-0 opacity-20 grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-1000">
-                  <img src={`${sol.img}?auto=format&fit=crop&q=80`} alt={sol.title} className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000" />
+                <div className="absolute inset-0 opacity-20  group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-1000">
+                  <img src={sol.img} alt={sol.title} className="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-1000" />
                 </div>
 
                 <div className="relative z-10">
@@ -296,8 +295,8 @@ const Index = () => {
             <div className="lg:col-span-7 gsap-reveal">
               <div className="grid grid-cols-2 gap-4 h-[600px]">
                 {[
-                  { name: "Raj Singh", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" },
-                  { name: "Vaibhav Gupta", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80" }
+                  { name: "Raj Singh", img: "/images/founder_raj.png" },
+                  { name: "Vaibhav Gupta", img: "/images/founder_vaibhav.png" }
                 ].map((f, i) => (
                   <div key={i} className={`relative group h-full ${i === 1 ? 'pt-20' : ''}`}>
                     <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
@@ -412,19 +411,18 @@ const Index = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 gsap-reveal">
             {[
-              "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
-              "https://images.unsplash.com/photo-1497366216548-37526070297c",
-              "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
-              "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
-              "https://images.unsplash.com/photo-1497215728101-856f4ea42174",
-              "https://images.unsplash.com/photo-1522071820081-009f0129c71c"
+              "/images/solution_restaurant.png",
+              "/images/solution_clinic.png",
+              "/images/solution_gym.png",
+              "/images/solution_salon.png",
+              "/images/solution_enterprise.png",
+              "/images/solution_retail.png"
             ].map((url, i) => (
               <div key={i} className={`aspect-video border border-white/10 overflow-hidden relative group transform transition-all duration-700 hover:scale-[1.02] ${i % 2 === 0 ? 'md:mt-12' : ''}`}>
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-all z-10" />
                 <img
-                  src={`${url}?auto=format&fit=crop&q=80`}
-                  crossOrigin="anonymous"
-                  className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110"
+                  src={url}
+                  className="w-full h-full object-cover  transition-all duration-700 group-hover:scale-110"
                   alt="Work Sample"
                 />
                 <div className="absolute bottom-4 right-4 z-20 opacity-0 group-hover:opacity-100 transition-opacity">

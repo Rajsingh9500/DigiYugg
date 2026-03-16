@@ -21,17 +21,17 @@ const expertiseCards = [
   { 
     title: "Enterprise Solutions", 
     desc: "Our efficient project execute team ensure projects are delivered in a timely manners including to perform inspection and quality check prior to the handover.",
-    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+    img: "/images/solution_enterprise.png"
   },
   { 
     title: "Digital Consultation", 
     desc: "Strategy-led development focusing on user-centric design and technical precision.",
-    img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80"
+    img: "/images/hero_agency.png"
   },
   { 
     title: "Specialist Delivery", 
     desc: "Reinstatement specialists and high-performance system delivery for complex local businesses.",
-    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80"
+    img: "/images/solution_retail.png"
   }
 ];
 

@@ -8,12 +8,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const portfolioItems = [
-  { icon: UtensilsCrossed, title: "Culinary Digital", category: "Hospitality", img: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80" },
-  { icon: Stethoscope, title: "Health Logic", category: "Medical", img: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80" },
-  { icon: Dumbbell, title: "Iron System", category: "Fitness", img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80" },
-  { icon: Scissors, title: "Luxe Cut", category: "Salon", img: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&q=80" },
-  { icon: GraduationCap, title: "Vision Academy", category: "Education", img: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80" },
-  { icon: Globe, title: "Global Retail", category: "E-commerce", img: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80" },
+  { icon: UtensilsCrossed, title: "Culinary Digital", category: "Hospitality", img: "/images/solution_restaurant.png" },
+  { icon: Stethoscope, title: "Health Logic", category: "Medical", img: "/images/portfolio_health.png" },
+  { icon: Dumbbell, title: "Iron System", category: "Fitness", img: "/images/solution_gym.png" },
+  { icon: Scissors, title: "Luxe Cut", category: "Salon", img: "/images/solution_salon.png" },
+  { icon: GraduationCap, title: "Vision Academy", category: "Education", img: "/images/portfolio_education.png" },
+  { icon: Globe, title: "Global Retail", category: "E-commerce", img: "/images/portfolio_ecommerce.png" },
 ];
 
 import { Globe } from "lucide-react";
@@ -83,7 +83,6 @@ const Portfolio = () => {
                   <img 
                     src={item.img} 
                     alt={item.title} 
-                    crossOrigin="anonymous"
                     className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity p-12 flex flex-col justify-end">
