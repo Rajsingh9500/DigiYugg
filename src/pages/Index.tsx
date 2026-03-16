@@ -80,23 +80,28 @@ const Index = () => {
 
 
       // Stats Counters
-      const counters = document.querySelectorAll(".stat-counter");
+      const counters = gsap.utils.toArray(".stat-counter") as HTMLElement[];
       counters.forEach((counter) => {
-        const value = parseInt(counter.getAttribute("data-value") || "0");
-        gsap.from(counter, {
-          textContent: 0,
-          duration: 2,
-          ease: "expo.out",
-          snap: { textContent: 1 },
+        const targetValue = parseInt(counter.getAttribute("data-value") || "0");
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: targetValue,
+          duration: 2.5,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: counter,
-            start: "top 90%",
+            start: "top 95%",
+            toggleActions: "play none none none"
           },
+          onUpdate: () => {
+            const current = Math.floor(obj.val);
+            counter.textContent = targetValue < 10 ? current.toString().padStart(2, '0') : current.toString();
+          }
         });
       });
 
       // Unified Section Reveals
-      const revealSections = document.querySelectorAll(".gsap-reveal");
+      const revealSections = gsap.utils.toArray(".gsap-reveal") as HTMLElement[];
       revealSections.forEach((section) => {
         gsap.from(section, {
           y: 60,
@@ -105,7 +110,7 @@ const Index = () => {
           ease: "power2.out",
           scrollTrigger: {
             trigger: section,
-            start: "top 85%",
+            start: "top 90%",
           },
         });
       });
@@ -188,13 +193,14 @@ const Index = () => {
 
                 <div className="space-y-20">
                   {[
-                    { num: "02", label: "Visionary\nFounders" },
-                    { num: "50+", label: "Digital Projects\nCompleted" },
-                    { num: "24/7", label: "Reliable\nSupport" }
+                    { num: "2", suffix: "", label: "Visionary\nFounders", value: 2 },
+                    { num: "50", suffix: "+", label: "Digital Projects\nCompleted", value: 50 },
+                    { num: "24", suffix: "/7", label: "Reliable\nSupport", value: 24 }
                   ].map((s, i) => (
                     <div key={i} className="flex items-start gap-14 group">
-                      <div className="text-8xl md:text-[10rem] font-black text-primary leading-none tracking-tighter transition-transform duration-500 group-hover:scale-105">
-                        {s.num}
+                      <div className="text-8xl md:text-[10rem] font-black text-primary leading-none tracking-tighter transition-transform duration-500 group-hover:scale-105 flex">
+                        <span className="stat-counter" data-value={s.value}>0</span>
+                        {s.suffix && <span className="text-primary">{s.suffix}</span>}
                       </div>
                       <div className="pt-6">
                         <p className="text-primary font-black uppercase tracking-[0.2em] text-[11px] leading-relaxed whitespace-pre-line group-hover:text-white transition-colors">
@@ -206,7 +212,6 @@ const Index = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -411,10 +416,10 @@ const Index = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8 gsap-reveal">
             {[
-              "/images/solution_restaurant.png",
-              "/images/solution_clinic.png",
-              "/images/solution_gym.png",
-              "/images/solution_salon.png",
+              "/images/portfolio_restaurant_web.png",
+              "/images/portfolio_clinic_web.png",
+              "/images/portfolio_gym_web.png",
+              "/images/portfolio_salon_web.png",
               "/images/solution_enterprise.png",
               "/images/solution_retail.png"
             ].map((url, i) => (
@@ -434,7 +439,7 @@ const Index = () => {
         </div>
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120vw] h-[50vh] bg-primary/5 rounded-[100%] blur-[120px] pointer-events-none -mb-[25vh]" />
       </section>
-    </div>
+    </div >
   );
 };
 
