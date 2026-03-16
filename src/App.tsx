@@ -19,6 +19,7 @@ import Contact from "./pages/Contact";
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import Chat from "./pages/Chat";
+import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
 
 import SmoothScroll from "@/components/SmoothScroll";
@@ -60,6 +61,7 @@ const AnimatedRoutes = () => {
           <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/auth" element={<Auth />} />
