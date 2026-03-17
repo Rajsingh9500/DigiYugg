@@ -7,7 +7,7 @@ import ReactMarkdown from "react-markdown";
 import { streamChat, type ChatMessage } from "@/lib/chat-stream";
 
 const STORAGE_KEY = "digiyugg-chat-widget";
-const DEFAULT_MSG: ChatMessage = { role: "assistant", content: "Hi! 👋 I'm the DigiYugg assistant. How can I help you today? I can answer questions about our web development services, pricing, or help you get started!" };
+const DEFAULT_MSG: ChatMessage = { role: "assistant", content: "Hi! 👋 I'm Meera from DigiYugg. How can I help you today? Whether you're curious about our web development services, pricing, or just want to chat about a new project — I'm all ears!" };
 
 const ChatWidget = () => {
   const [open, setOpen] = useState(false);
@@ -111,15 +111,15 @@ const ChatWidget = () => {
         <div className="fixed bottom-6 right-6 z-[60] w-[420px] max-w-[calc(100vw-2rem)] h-[600px] max-h-[calc(100vh-6rem)] bg-[#050505] border border-white/10 flex flex-col overflow-hidden shadow-2xl">
           {/* Simplified Header */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-white/[0.02]">
-             <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-primary/10 border border-primary/30 flex items-center justify-center">
                 <Bot className="h-4 w-4 text-primary" />
               </div>
               <div>
                 <p className="text-[10px] font-black uppercase tracking-widest text-white">AI Assistant</p>
                 <div className="flex items-center gap-1.5 mt-0.5">
-                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-                   <p className="text-[8px] font-bold uppercase tracking-widest text-white/40">Secured Node</p>
+                  <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
+                  <p className="text-[8px] font-bold uppercase tracking-widest text-white/40">Secured Node</p>
                 </div>
               </div>
             </div>
@@ -136,7 +136,7 @@ const ChatWidget = () => {
           </div>
 
           {/* Messages */}
-          <div 
+          <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
             data-lenis-prevent
@@ -145,12 +145,11 @@ const ChatWidget = () => {
           >
             {messages.map((msg, i) => (
               <div key={i} className={`flex flex-col ${msg.role === "user" ? "items-end" : "items-start"}`}>
-                <div className={`max-w-[85%] border px-4 py-3 relative ${
-                  msg.role === "user"
+                <div className={`max-w-[85%] border px-4 py-3 relative ${msg.role === "user"
                     ? "border-primary/30 bg-primary/[0.05] text-white"
                     : "border-white/10 bg-white/[0.03] text-white/95 shadow-lg"
-                }`}>
-                   <div className="prose prose-sm prose-invert max-w-none text-[13px] text-inherit [&>p]:mb-0 font-medium leading-relaxed prose-strong:text-white prose-strong:font-black">
+                  }`}>
+                  <div className="prose prose-sm prose-invert max-w-none text-[13px] text-inherit [&>p]:mb-0 font-medium leading-relaxed prose-strong:text-white prose-strong:font-black">
                     <ReactMarkdown>{msg.content}</ReactMarkdown>
                   </div>
                 </div>
@@ -158,16 +157,16 @@ const ChatWidget = () => {
             ))}
             {isLoading && messages[messages.length - 1]?.role === "user" && (
               <div className="flex flex-col items-start px-1">
-                 <span className="text-[8px] font-black uppercase tracking-[0.3em] text-primary/40 mb-3">Processor_Active...</span>
-                 <div className="flex gap-1.5 ml-1 mb-4">
-                    <div className="w-1.5 h-1.5 bg-primary animate-pulse" />
-                    <div className="w-1.5 h-1.5 bg-primary/60 animate-pulse [animation-delay:0.2s]" />
-                    <div className="w-1.5 h-1.5 bg-primary/30 animate-pulse [animation-delay:0.4s]" />
-                 </div>
-                 <div className="flex items-center gap-2 px-1">
-                    <Loader2 className="h-4 w-4 animate-spin text-primary" />
-                    <span className="text-xs text-white/60">Thinking...</span>
-                 </div>
+                <span className="text-[8px] font-black uppercase tracking-[0.3em] text-primary/40 mb-3">Processor_Active...</span>
+                <div className="flex gap-1.5 ml-1 mb-4">
+                  <div className="w-1.5 h-1.5 bg-primary animate-pulse" />
+                  <div className="w-1.5 h-1.5 bg-primary/60 animate-pulse [animation-delay:0.2s]" />
+                  <div className="w-1.5 h-1.5 bg-primary/30 animate-pulse [animation-delay:0.4s]" />
+                </div>
+                <div className="flex items-center gap-2 px-1">
+                  <Loader2 className="h-4 w-4 animate-spin text-primary" />
+                  <span className="text-xs text-white/60">Thinking...</span>
+                </div>
               </div>
             )}
             <div ref={messagesEndRef} />
@@ -183,8 +182,8 @@ const ChatWidget = () => {
                 className="flex-1 bg-white/[0.03] border border-white/10 px-4 py-3 text-white text-[11px] font-medium focus:outline-none focus:border-primary/50 transition-all placeholder:text-white/20 rounded-md"
                 disabled={isLoading}
               />
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="w-11 h-11 flex items-center justify-center bg-primary text-black hover:bg-white transition-all disabled:opacity-50 rounded-md"
                 disabled={isLoading || !input.trim()}
               >
@@ -192,12 +191,12 @@ const ChatWidget = () => {
               </button>
             </form>
             <div className="mt-3 flex justify-between items-center px-1">
-               <span className="text-[10px] text-white/30">Powered by DigiYugg AI</span>
-               {messages.length > 1 && (
-                 <button onClick={clearChat} className="text-[10px] text-white/30 hover:text-red-500 transition-colors flex items-center gap-1">
-                   <Trash2 className="h-3 w-3" /> Clear Chat
-                 </button>
-               )}
+              <span className="text-[10px] text-white/30">Powered by DigiYugg AI</span>
+              {messages.length > 1 && (
+                <button onClick={clearChat} className="text-[10px] text-white/30 hover:text-red-500 transition-colors flex items-center gap-1">
+                  <Trash2 className="h-3 w-3" /> Clear Chat
+                </button>
+              )}
             </div>
           </div>
         </div>
