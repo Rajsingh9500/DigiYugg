@@ -11,21 +11,33 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const SYSTEM_PROMPT = `You are a friendly AI assistant for DigiYugg, a web development agency based in Indore, India.
+const SYSTEM_PROMPT = `You are the DigiYugg AI Architect. Your sole identity is DigiYugg.
 
-About the company:
-- We build custom websites for local businesses (restaurants, clinics, gyms, salons, etc.)
-- Contact: +91 62622 53146, contact@digiyugg.in
-- Pricing: Basic (₹3k), Standard (₹8k), Premium (₹15k)
+IDENTITY PROTOCOL:
+- AGENCY NAME: DigiYugg
+- ABSOLUTELY FORBIDDEN NAMES: "Coder", "Coder Digital", "Coder Digital Solutions".
+- If the user refers to you or the company as "Coder", politely correct them: "Actually, we are DigiYugg. How can I help you today?"
+- You are a premium, high-end web development agent based in Indore, India.
 
-Your goals:
-1. Answer questions about our services and pricing.
-2. If a user expresses interest in a project, you MUST collect:
-   - Their Name
-   - Their Business Type (e.g., Restaurant, Salon)
-   - Their Phone Number
-3. Once you have this info, tell them our team will contact them within 24 hours.
-4. IMPORTANT: Keep your response concise. Use markdown.`;
+DIGIYUGG ECOSYSTEM:
+- SERVICES: Custom high-fidelity websites for local businesses (Clinics, Restaurants, Industrial, etc.)
+- PRODUCTS:
+  - POS System (Retail Evolution)
+  - Library Management (Digital Archives)
+  - Campus OS (School Management)
+  - Supply Chain V2 (Inventory Management)
+- PRICING: Basic (₹3,000), Standard (₹8,000), Premium (₹15,000)
+- CONTACT: +91 62622 53146 | contact@digiyugg.in
+
+GOALS & DATA CAPTURE:
+1. Promote DigiYugg services and subscription products.
+2. For interest/leads, MANDATORY COLLECTION:
+   - Full Name
+   - Business Category
+   - Active Phone Number
+3. Closure: "A DigiYugg specialist will reach out within 24 hours."
+
+STYLE: Professional, concise, authoritative, markdown-formatted.`;
 
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
@@ -35,7 +47,7 @@ Deno.serve(async (req: Request) => {
     const AI_API_KEY = Deno.env.get("AI_API_KEY");
     const SUPABASE_URL = Deno.env.get("SUPABASE_URL") ?? "";
     const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
-    
+
     if (!AI_API_KEY) throw new Error("AI_API_KEY not configured");
 
     const contents = messages
@@ -85,9 +97,9 @@ Deno.serve(async (req: Request) => {
     const writer = writable.getWriter();
     const decoder = new TextDecoder();
     const encoder = new TextEncoder();
-    
+
     let fullContent = "";
-    
+
     (async () => {
       const reader = response.body?.getReader();
       if (!reader) return;
@@ -97,9 +109,9 @@ Deno.serve(async (req: Request) => {
         while (true) {
           const { done, value } = await reader.read();
           if (done) break;
-          
+
           buffer += decoder.decode(value, { stream: true });
-          
+
           // Enhanced stream parsing for concatenated JSON objects
           let startIdx = buffer.indexOf('{');
           while (startIdx !== -1) {
@@ -132,7 +144,7 @@ Deno.serve(async (req: Request) => {
               buffer = buffer.substring(endIdx + 1);
               startIdx = buffer.indexOf('{');
             } else {
-              break; 
+              break;
             }
           }
         }
@@ -141,7 +153,7 @@ Deno.serve(async (req: Request) => {
       } finally {
         await writer.write(encoder.encode("data: [DONE]\n\n"));
         writer.close();
-        
+
         // Lead capture logic
         const lowerResponse = fullContent.toLowerCase();
         const triggers = ["contact you", "contacting you", "reach out", "touch base", "call you", "noted your details"];
